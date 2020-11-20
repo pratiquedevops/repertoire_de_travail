@@ -1,0 +1,6 @@
+---
+# handlers file for lanceur_du_serveur_jenkins
+- name: firewalld - reload
+  service: 
+    name: firewalld
+    state: reloaded

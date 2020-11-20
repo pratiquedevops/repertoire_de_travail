@@ -1,0 +1,5 @@
+---
+- name: ploiement de jenkins
+  hosts: localhost
+  roles:
+    - lanceur_du_serveur_jenkins
