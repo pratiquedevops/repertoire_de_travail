@@ -1,0 +1,7 @@
+---
+# tasks file for java
+- name: java install
+  yum: 
+    name: java
+    state: present 
+    

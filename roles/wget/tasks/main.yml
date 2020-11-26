@@ -1,0 +1,6 @@
+---
+# tasks file for wget
+- name: Installation de wget
+  yum:
+    name: wget
+    state: present

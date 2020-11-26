@@ -1,0 +1,6 @@
+---
+# tasks file for tree
+- name: install tree
+  yum: 
+    name: tree
+    state: present
