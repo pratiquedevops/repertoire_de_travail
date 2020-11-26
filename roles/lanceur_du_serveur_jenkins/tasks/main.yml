@@ -14,7 +14,7 @@
 
 # faire une ouverture de flux
 - firewalld:
-    port: 9090/tcp
+    port: 9091/tcp
     permanent: yes
     state: enabled
   notify:
