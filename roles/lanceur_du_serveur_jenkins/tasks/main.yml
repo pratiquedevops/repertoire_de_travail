@@ -9,8 +9,9 @@
 - name: Download file with check (sha256)
   get_url:
     url: http://mirrors.jenkins.io/war/2.263/jenkins.war
-    dest:"/tmp/jenkins{{ ports }}.war"
+    dest:/tmp/jenkins{{ ports }}.war
     mode: '0777'
+   #dest:"/tmp/jenkins{{ ports }}.war"
 
 # faire une ouverture de flux
 - firewalld:
