@@ -1,2 +1,3 @@
 ---
 # defaults file for lanceur_du_serveur_jenkins
+port: 9091
