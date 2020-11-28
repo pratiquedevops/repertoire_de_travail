@@ -21,9 +21,9 @@
     permanent: yes
     state: enabled
     with_items:
-     - 9091
-     - 9092 
-- notify:
+      - 9091
+      - 9092 
+    notify:
      - firewalld - reload
 # Mettre SeLinux en mode permissive
 
