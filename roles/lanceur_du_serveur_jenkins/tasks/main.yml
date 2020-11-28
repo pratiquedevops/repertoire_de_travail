@@ -9,15 +9,21 @@
 - name: Download file with check (sha256)
   get_url:
     url: http://mirrors.jenkins.io/war/2.263/jenkins.war
-    dest: "/tmp/jenkins{{ ports }}.war"
+    dest: "/tmp/jenkins{{ item }}.war"
     mode: '0777'
+    with_items:
+      - 9091
+      - 9092
 
 # faire une ouverture de flux
 - firewalld:
-    port: "{{ ports }}/tcp"
+    port: "{{ item }}/tcp"
     permanent: yes
     state: enabled
-  notify:
+    with_items:
+     - 9091
+     - 9092 
+notify:
     - firewalld - reload
 # Mettre SeLinux en mode permissive
 
@@ -31,4 +37,7 @@
 # lancement de la commande pour lancer jenkins
 - name: lancement de jenkins
   become: true
-  shell: pkill java ; java -jar /tmp/jenkins.war --httpPort=9091 --logfile=/var/log/jenkins91_log 2>&1 & 
+  shell: " pkill java ; java -jar /tmp/jenkins{{ item }}.war --httpPort={{ item }} --logfile=/var/log/jenkins{{ item }}_log 2>&1 & " 
+  with_items:
+    - 9091
+    - 9092
