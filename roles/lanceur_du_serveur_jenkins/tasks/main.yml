@@ -23,8 +23,8 @@
     with_items:
      - 9091
      - 9092 
-notify:
-    - firewalld - reload
+- notify:
+     - firewalld - reload
 # Mettre SeLinux en mode permissive
 
 - name: Put SELinux in permissive mode
